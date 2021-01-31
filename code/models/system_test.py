@@ -1,7 +1,7 @@
 # ===== Config =====
 AUTHOR = 'Michiel Jacobs'
 VERSION = '0.1.0'
-MODELTITLE = 'Model 1'
+MODELTITLE = 'System test'
 MODELTYPE = '3D CNN'
 MAXHEAVYATOMS = 20
 FEATURE = 'Coulomb Matrix'
@@ -34,7 +34,8 @@ now = datetime.now()
 MODELNAME = '{} {} on {}'.format(MODELTYPE, VERSION, now.strftime("%m-%d-%Y %H.%M.%S"))
 MODELNAME = MODELNAME.replace(' ', '_')
 
-log.basicConfig(filename=os.path.join(PATH, os.pardir, os.pardir, 'logs', '{}.log'.format(MODELNAME)),
+LOGPATH = os.path.join(PATH, os.pardir, os.pardir, 'logs', '{}.log'.format(MODELNAME))
+log.basicConfig(filename=LOGPATH,
                 level=log.DEBUG,
                 format='%(asctime)s:%(levelname)s:%(message)s')
 
@@ -132,6 +133,19 @@ test_labels = np.array(test_zpe)
 log.info('============== Step 3: Model compilation ==============')
 
 # Settings of the NN
+settings = pd.DataFrame(
+    np.array([
+            [(6,62,62,1), '', (1,3,3), '', 64, ''],
+            ['', '', '', '', '', 0.2],
+            ['', '', (1,3,3), '', '64', ''],
+            ['', '', '', '', '', 0.2],
+            ['', '', (1,3,3), '', '64', ''],
+            ['', '', '', '', '', ''],
+            ['', '', '', '', '', '0.2']
+            ], dtype=object),
+    index=['Layer 1', 'Layer 2', 'Layer 3', 'Layer 4', 'Layer 5', 'Layer 6', 'Layer 7'],
+    columns=['Input shape', 'Batch size', 'kernel size', 'pool size', 'filters', 'dropout'])
+
 input_shape = (6,62,62,1)
 batch_size = 128
 kernel_size = (1,3,3)
@@ -212,17 +226,44 @@ report = Template(MODELTITLE, MODELTYPE, AUTHOR, MODELNAME)
 
 # ===== Second page =====
 report.add_page()
+
 report.head1('Run information')
 report.head2('Model:')
-report.text('Author: {}'.format(AUTHOR))
-report.text('Version: {}'.format(VERSION))
-report.text('Type: {}'.format(MODELTYPE))
-report.text('Feature: {}'.format(FEATURE))
-report.text('Label: {}'.format(LABEL))
+report.label('Author: ', AUTHOR)
+report.label('Version: ', VERSION)
+report.label('Type: ', MODELTYPE)
+report.label('Feature: ', FEATURE)
+report.label('Label: ', LABEL)
+
 report.head2('Data:')
-report.text('Maximum heavy atoms: {}'.format(MAXHEAVYATOMS))
-report.text('Maximum molecule size: {}'.format(maxsize))
-report.label('Test','itworkd')
+report.label('Maximum heavy atoms: ', MAXHEAVYATOMS)
+report.label('Maximum molecule size: ', maxsize)
+report.label('Split ratio: ', split_ratio)
+report.label('Molecules for training: ', train_features.shape[0])
+report.label('Molecules for testing: ', test_features.shape[0])
+
+# ===== Third page =====
+report.add_page()
+report.head1('Neural Network')
+report.head2('Network settings')
+settings = settings.transpose()
+report.text(settings.to_string())
+report.head2('NN summary')
+stringlist = []
+model.summary(print_fn=lambda x: stringlist.append(x))
+short_model_summary = "\n".join(stringlist)
+report.text(short_model_summary)
+
+# ===== Fourth page =====
+report.add_page()
+report.head1('Results')
+report.text('Results and graphs comming soon.')
+
+# ===== Last pages =====
+report.add_page()
+report.head1('Log')
+with open(LOGPATH, 'r') as f:
+    report.text(f.read())
 
 # Save the report
 report.output(os.path.join(PATH, os.pardir, os.pardir, 'reports', '{}.pdf'.format(MODELNAME)))

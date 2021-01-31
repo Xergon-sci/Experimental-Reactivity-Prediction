@@ -18,6 +18,8 @@ class Template(FPDF):
         self.modelname = modelname
         self.today = date.today()
         self.date = self.today.strftime("%d/%m/%Y")
+        self.set_left_margin(15)
+        self.set_right_margin(15)
         self.frontPage()
 
     def header(self):
@@ -70,9 +72,15 @@ class Template(FPDF):
         self.set_font('verdana', size=9)
         self.multi_cell(0, 5, txt=text, ln=1)
     
+    def log(self, text):
+        self.set_text_color(0,0,0)
+        self.set_font('verdana', size=7)
+        self.multi_cell(0, 5, txt=text, ln=1)
+    
     def label(self, label, text):
+        text = str(text)
         self.set_text_color(0,0,0)
         self.set_font('verdana', size=9, style='B')
-        self.cell(0,5, label,ln=0)
+        self.cell(self.get_string_width(label),5, label,ln=0)
         self.set_font('verdana', size=9, style='')
-        self.cell(0,5, text, ln=0)
+        self.cell(self.get_string_width(text),5, text, ln=1)
