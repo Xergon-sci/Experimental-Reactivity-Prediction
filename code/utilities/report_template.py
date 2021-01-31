@@ -8,7 +8,10 @@ class Template(FPDF):
         super().__init__()
         self.PATH = os.path.dirname(os.path.abspath(__file__))
         self.IMG = os.path.join(self.PATH, os.pardir, os.pardir, 'reports', 'img')
-        self.add_font('verdana','', r'c:\WINDOWS\Fonts\Verdana.ttf', uni=True)
+        self.FONT = os.path.join(self.PATH, os.pardir, os.pardir, 'reports', 'font')
+        self.add_font('verdana','', os.path.join(self.FONT, 'verdana.ttf'), uni=True)
+        self.add_font('verdana','B', os.path.join(self.FONT, 'verdanab.ttf'), uni=True)
+        self.add_font('verdana','I', os.path.join(self.FONT, 'verdanai.ttf'), uni=True)
         self.title = title
         self.subtitle = subtitle
         self.author = author
@@ -53,13 +56,23 @@ class Template(FPDF):
         self.multi_cell(50, 5, txt='{}\n{}'.format(self.author, self.date), ln=2)
     
     def head1(self, text):
-        self.set_x(12)
         self.set_font('verdana', size=16)
         self.set_text_color(0,51,153)
         self.cell(self.get_string_width(text), 10, txt=text, ln=1)
     
-    def text(self, text):
-        self.set_x(12)
+    def head2(self, text):
+        self.set_font('verdana', size=11)
         self.set_text_color(0,0,0)
-        self.set_font('verdana', size=12)
-        self.multi_cell(0, 10, txt=text, ln=1)
+        self.cell(self.get_string_width(text), 10, txt=text, ln=1)
+    
+    def text(self, text):
+        self.set_text_color(0,0,0)
+        self.set_font('verdana', size=9)
+        self.multi_cell(0, 5, txt=text, ln=1)
+    
+    def label(self, label, text):
+        self.set_text_color(0,0,0)
+        self.set_font('verdana', size=9, style='B')
+        self.cell(0,5, label,ln=0)
+        self.set_font('verdana', size=9, style='')
+        self.cell(0,5, text, ln=0)
