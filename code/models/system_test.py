@@ -6,10 +6,17 @@ FEATURE = 'Coulomb Matrix'
 LABEL = 'Zero point energy'
 
 # ===== Imports =====
+import sys
+import os
+
+PATH = os.path.dirname(os.path.abspath(__file__))
+PATH = os.path.join(PATH, os.pardir, 'utilities')
+sys.path.append(PATH)
+
 from datetime import datetime
 import logging as log
-
 import pandas as pd
+from data_utility import loaddata
 
 # ===== Initialization phase =====
 now = datetime.now()
@@ -30,7 +37,6 @@ log.info('Labels: {}'.format(LABEL))
 
 # ===== Step 1: Load data =====
 log.info('============== Step 1: Loading Data ==============')
-
 
 
 
