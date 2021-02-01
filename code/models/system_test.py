@@ -269,5 +269,6 @@ with open(LOGPATH, 'r') as f:
 report.output(os.path.join(PATH, os.pardir, os.pardir, 'reports', '{}.pdf'.format(MODELNAME)))
 
 log.info('Shutting down...')
+
 # Stop logging
 log.shutdown()
