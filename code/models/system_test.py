@@ -1,7 +1,7 @@
 # ===== Config =====
 AUTHOR = 'Michiel Jacobs'
 VERSION = '0.1.0'
-MODELTITLE = 'System test'
+MODELTITLE = 'Hydra System Test'
 MODELTYPE = '3D CNN'
 MAXHEAVYATOMS = 20
 FEATURE = 'Coulomb Matrix'
