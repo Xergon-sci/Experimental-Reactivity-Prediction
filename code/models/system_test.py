@@ -1,7 +1,7 @@
 # ===== Config =====
 AUTHOR = 'Michiel Jacobs'
 VERSION = '0.1.0'
-MODELTITLE = 'Hydra System Test'
+MODELTITLE = 'Report System Test'
 MODELTYPE = '3D CNN'
 MAXHEAVYATOMS = 20
 FEATURE = 'Coulomb Matrix'
@@ -28,6 +28,9 @@ from qubit.preprocessing.descriptors import tensorise_coulomb_matrix
 from qubit.preprocessing.matrix_operations import pad_matrix
 from data_utility import loaddata
 from report_template import Template
+from plot_utility import plot_predictions
+from plot_utility import plot_errorhist
+from plot_utility import plot_loss
 
 # ===== Initialization =====
 now = datetime.now()
@@ -36,7 +39,7 @@ MODELNAME = MODELNAME.replace(' ', '_')
 
 LOGPATH = os.path.join(PATH, os.pardir, os.pardir, 'logs', '{}.log'.format(MODELNAME))
 log.basicConfig(filename=LOGPATH,
-                level=log.DEBUG,
+                level=log.INFO,
                 format='%(asctime)s:%(levelname)s:%(message)s')
 
 log.info('Starting model {}'.format(MODELNAME))
@@ -204,13 +207,21 @@ history = model.fit(
     epochs=2,
     validation_split=0.2)
 
+plot_loss('model_loss.jpg', history.history['loss'], history.history['val_loss'], 'mse')
+
 # ===== Step 5: Model evaluation =====
 log.info('============== Step 5: Model evaluation ==============')
 
 test_scores = model.evaluate(
     test_features,
     test_labels,
-    verbose=2)
+    verbose=1)
+
+log.info('Test scores: {}'.format(test_scores))
+
+test_predictions = model.predict(test_features).flatten()
+plot_predictions('ToP.jpg', test_labels, test_predictions, 'ev')
+plot_errorhist('Error_hist.jpg', test_labels, test_predictions, 'ev')
 
 # ===== Step 6: Saving, reporting and cleanup =====
 log.info('============== Step 6: Saving, reporting and cleanup ==============')
@@ -254,10 +265,16 @@ model.summary(print_fn=lambda x: stringlist.append(x))
 short_model_summary = "\n".join(stringlist)
 report.text(short_model_summary)
 
-# ===== Fourth page =====
+# ===== Results section =====
 report.add_page()
 report.head1('Results')
-report.text('Results and graphs comming soon.')
+report.head2('Training evaluation')
+report.image('model_loss.jpg', w=170)
+report.add_page()
+report.head2('Model evaluation')
+report.image('ToP.jpg', x=30, w=150)
+report.add_page()
+report.image('Error_hist.jpg', w=170)
 
 # ===== Last pages =====
 report.add_page()
@@ -267,6 +284,12 @@ with open(LOGPATH, 'r') as f:
 
 # Save the report
 report.output(os.path.join(PATH, os.pardir, os.pardir, 'reports', '{}.pdf'.format(MODELNAME)))
+
+# cleanup the images
+os.remove('model_loss.jpg')
+os.remove('ToP.jpg')
+os.remove('Error_hist.jpg')
+log.info('Removed images')
 
 log.info('Shutting down...')
 
