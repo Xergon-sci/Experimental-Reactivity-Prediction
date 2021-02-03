@@ -1,7 +1,7 @@
 # ===== Config =====
 AUTHOR = 'Michiel Jacobs'
 VERSION = '0.1.0'
-MODELTITLE = 'Predicting\n Zero Point energies'
+MODELTITLE = 'Predicting\nZero Point energies'
 MODELTYPE = '3D CNN'
 MAXHEAVYATOMS = 20
 FEATURE = 'Coulomb Matrix'
@@ -24,6 +24,8 @@ import tensorflow as tf
 import numpy as np
 from tensorflow import keras
 from tensorflow.keras import layers
+from tensorflow.keras import losses
+from tensorflow.keras import optimizers
 from qubit.preprocessing.descriptors import tensorise_coulomb_matrix
 from qubit.preprocessing.matrix_operations import pad_matrix
 from data_utility import loaddata
@@ -83,7 +85,7 @@ log.info('Data loaded')
 log.info('============== Step 2: data preprocessing ==============')
 
 if DEVMODE:
-    data = data.iloc[:100,:]
+    data = data.iloc[:500,:]
 
 log.info('Trimming dataset...')
 # Drop unused data
@@ -206,6 +208,8 @@ model.add(layers.Flatten())
 
 model.add(layers.Dropout(dropout))
 
+model.add(layers.Dense(32))
+model.add(layers.Dense(32))
 model.add(layers.Dense(1))
 
 # Print the model summary to the log
@@ -214,9 +218,9 @@ model.summary(print_fn=log.info)
 # Compile the model
 log.info('Compiling the model...')
 model.compile(
-    loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-    optimizer=keras.optimizers.RMSprop(),
-    metrics=["accuracy"],
+    loss='mean_squared_error',
+    optimizer=optimizers.Adam(0.001),
+    metrics=['mean_absolute_error', 'mean_squared_error']
     )
 
 # ===== Step 4: Model training =====
@@ -225,8 +229,8 @@ log.info('============== Step 4: Model training ==============')
 history = model.fit(
     train_features,
     train_labels,
-    batch_size=512,
-    epochs=2,
+    batch_size=32,
+    epochs=20,
     validation_split=0.2)
 
 plot_loss('model_loss.jpg', history.history['loss'], history.history['val_loss'], 'mse')
@@ -255,7 +259,7 @@ log.info('Model saved.')
 
 # Generate the report
 log.info('Generating report...')
-report = Template(MODELTITLE, MODELTYPE, AUTHOR, MODELNAME)
+report = Template(MODELTITLE, MODELTYPE + '' + VERSION, AUTHOR, MODELNAME)
 
 # ===== Second page =====
 report.add_page()

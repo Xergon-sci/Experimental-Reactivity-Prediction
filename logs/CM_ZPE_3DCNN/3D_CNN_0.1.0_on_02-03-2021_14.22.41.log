@@ -1,0 +1,71 @@
+2021-02-03 14:22:41,827:INFO:Starting model 3D_CNN_0.1.0_on_02-03-2021_14.22.41
+2021-02-03 14:22:41,828:INFO:=================== Model info ===================
+2021-02-03 14:22:41,828:INFO:Author: Michiel Jacobs
+2021-02-03 14:22:41,828:INFO:Version: 0.1.0
+2021-02-03 14:22:41,828:INFO:Modeltype: 3D CNN
+2021-02-03 14:22:41,828:INFO:Maximum heavy atoms: 20
+2021-02-03 14:22:41,828:INFO:Feature: Coulomb Matrix
+2021-02-03 14:22:41,828:INFO:Labels: Zero point energy
+2021-02-03 14:22:41,828:INFO:DEVELOPMENT: True
+2021-02-03 14:22:41,828:INFO:============== Step 1: loading data ==============
+2021-02-03 14:22:47,844:INFO:Data loaded
+2021-02-03 14:22:47,844:INFO:============== Step 2: data preprocessing ==============
+2021-02-03 14:22:47,845:INFO:Trimming dataset...
+2021-02-03 14:22:48,124:INFO:Loading arrays...
+2021-02-03 14:22:48,147:INFO:Shuffeling data...
+2021-02-03 14:22:48,147:INFO:Calculating maximum size of molecules...
+2021-02-03 14:22:48,148:INFO:The maximumsize of molecules is 62
+2021-02-03 14:22:48,148:INFO:Normalizing data...
+2021-02-03 14:22:48,176:INFO:Tensorisation of the coulomb matrices...
+2021-02-03 14:23:04,282:INFO:Building channels...
+2021-02-03 14:23:04,285:INFO:Calculating train test split...
+2021-02-03 14:23:04,285:INFO:There are 500 entries in this dataset.
+2021-02-03 14:23:04,286:INFO:Split ratio set to 0.8.
+2021-02-03 14:23:04,286:INFO:Trainingset contains 400 molecules.
+2021-02-03 14:23:04,286:INFO:Building train and test sets...
+2021-02-03 14:23:04,286:INFO:Converting train features to tf.tensors...
+2021-02-03 14:23:04,454:INFO:Converting test features to tf.tensors...
+2021-02-03 14:23:04,469:INFO:Converting train labels to array...
+2021-02-03 14:23:04,470:INFO:Converting test labels to array...
+2021-02-03 14:23:04,470:INFO:============== Step 3: Model compilation ==============
+2021-02-03 14:23:04,471:INFO:Building model...
+2021-02-03 14:23:04,544:INFO:Model: "sequential"
+2021-02-03 14:23:04,544:INFO:_________________________________________________________________
+2021-02-03 14:23:04,544:INFO:Layer (type)                 Output Shape              Param #   
+2021-02-03 14:23:04,545:INFO:=================================================================
+2021-02-03 14:23:04,545:INFO:conv3d (Conv3D)              (None, 6, 60, 60, 64)     640       
+2021-02-03 14:23:04,545:INFO:_________________________________________________________________
+2021-02-03 14:23:04,545:INFO:max_pooling3d (MaxPooling3D) (None, 3, 30, 30, 64)     0         
+2021-02-03 14:23:04,545:INFO:_________________________________________________________________
+2021-02-03 14:23:04,545:INFO:conv3d_1 (Conv3D)            (None, 3, 28, 28, 64)     36928     
+2021-02-03 14:23:04,545:INFO:_________________________________________________________________
+2021-02-03 14:23:04,546:INFO:max_pooling3d_1 (MaxPooling3 (None, 1, 14, 14, 64)     0         
+2021-02-03 14:23:04,546:INFO:_________________________________________________________________
+2021-02-03 14:23:04,546:INFO:conv3d_2 (Conv3D)            (None, 1, 12, 12, 64)     36928     
+2021-02-03 14:23:04,546:INFO:_________________________________________________________________
+2021-02-03 14:23:04,546:INFO:flatten (Flatten)            (None, 9216)              0         
+2021-02-03 14:23:04,546:INFO:_________________________________________________________________
+2021-02-03 14:23:04,546:INFO:dropout (Dropout)            (None, 9216)              0         
+2021-02-03 14:23:04,546:INFO:_________________________________________________________________
+2021-02-03 14:23:04,546:INFO:dense (Dense)                (None, 32)                294944    
+2021-02-03 14:23:04,546:INFO:_________________________________________________________________
+2021-02-03 14:23:04,546:INFO:dense_1 (Dense)              (None, 32)                1056      
+2021-02-03 14:23:04,547:INFO:_________________________________________________________________
+2021-02-03 14:23:04,547:INFO:dense_2 (Dense)              (None, 1)                 33        
+2021-02-03 14:23:04,547:INFO:=================================================================
+2021-02-03 14:23:04,547:INFO:Total params: 370,529
+2021-02-03 14:23:04,547:INFO:Trainable params: 370,529
+2021-02-03 14:23:04,547:INFO:Non-trainable params: 0
+2021-02-03 14:23:04,547:INFO:_________________________________________________________________
+2021-02-03 14:23:04,547:INFO:Compiling the model...
+2021-02-03 14:23:04,554:INFO:============== Step 4: Model training ==============
+2021-02-03 14:24:57,102:INFO:============== Step 5: Model evaluation ==============
+2021-02-03 14:24:59,458:INFO:Test scores: [0.001321112154982984, 0.027547022327780724, 0.001321112154982984]
+2021-02-03 14:25:02,589:INFO:============== Step 6: Saving, reporting and cleanup ==============
+2021-02-03 14:25:02,589:INFO:Saving model...
+2021-02-03 14:25:04,717:INFO:Assets written to: c:\Users\Michiel Jacobs\Research\Master Thesis\Experimental-Reactivity-Prediction\code\models\..\..\models\CM_ZPE_3DCNN\3D_CNN_0.1.0_on_02-03-2021_14.22.41.tf\assets
+2021-02-03 14:25:05,017:INFO:Model saved.
+2021-02-03 14:25:05,017:INFO:Generating report...
+2021-02-03 14:25:07,890:INFO:Page break on page 7 at y=273 for element of height 5
+2021-02-03 14:25:07,965:INFO:Removed images
+2021-02-03 14:25:07,966:INFO:Shutting down...

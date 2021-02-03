@@ -233,7 +233,7 @@ log.info('Model saved.')
 
 # Generate the report
 log.info('Generating report...')
-report = Template(MODELTITLE, MODELTYPE, AUTHOR, MODELNAME)
+report = Template(MODELTITLE, MODELTYPE + ' ' + VERSION, AUTHOR, MODELNAME)
 
 # ===== Second page =====
 report.add_page()
