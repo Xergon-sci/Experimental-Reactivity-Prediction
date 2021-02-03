@@ -1,12 +1,11 @@
 # ===== Config =====
 AUTHOR = 'Michiel Jacobs'
 VERSION = '0.1.0'
-MODELTITLE = 'Predicting Zero Point energies'
+MODELTITLE = 'Predicting\n Zero Point energies'
 MODELTYPE = '3D CNN'
 MAXHEAVYATOMS = 20
 FEATURE = 'Coulomb Matrix'
 LABEL = 'Zero point energy'
-FOLDER = '3D_CNN_CM_ZPE'
 
 DEVMODE = True
 
@@ -34,11 +33,33 @@ from plot_utility import plot_errorhist
 from plot_utility import plot_loss
 
 # ===== Initialization =====
+FOLDER = os.path.basename(__file__).replace('.py','')
+
 now = datetime.now()
 MODELNAME = '{} {} on {}'.format(MODELTYPE, VERSION, now.strftime("%m-%d-%Y %H.%M.%S"))
 MODELNAME = MODELNAME.replace(' ', '_')
 
-LOGPATH = os.path.join(PATH, os.pardir, os.pardir, 'logs', FOLDER, '{}.log'.format(MODELNAME))
+LOGFOLDER = os.path.join(PATH, os.pardir, os.pardir, 'logs', FOLDER)
+LOGPATH = os.path.join(LOGFOLDER, '{}.log'.format(MODELNAME))
+
+MODELFOLDER = os.path.join(PATH, os.pardir, os.pardir, 'models', FOLDER)
+MODELPATH = os.path.join(MODELFOLDER, '{}.tf'.format(MODELNAME))
+
+REPORTFOLDER = os.path.join(PATH, os.pardir, os.pardir, 'reports', FOLDER)
+REPORTPATH = os.path.join(REPORTFOLDER, '{}.pdf'.format(MODELNAME))
+
+if not os.path.exists(LOGFOLDER):
+    os.mkdir(LOGFOLDER)
+    log.info('Created a new log folder')
+
+if not os.path.exists(MODELFOLDER):
+    os.makedirs(MODELFOLDER)
+    log.info('Created a new model folder')
+
+if not os.path.exists(REPORTFOLDER):
+    os.makedirs(REPORTFOLDER)
+    log.info('Created a new report folder')
+
 log.basicConfig(filename=LOGPATH,
                 level=log.INFO,
                 format='%(asctime)s:%(levelname)s:%(message)s')
@@ -229,7 +250,7 @@ log.info('============== Step 6: Saving, reporting and cleanup ==============')
 
 # Save the model
 log.info('Saving model...')
-model.save(os.path.join(PATH, os.pardir, os.pardir, 'models', FOLDER, '{}.tf'.format(MODELNAME)))
+model.save(MODELPATH)
 log.info('Model saved.')
 
 # Generate the report
@@ -284,7 +305,7 @@ with open(LOGPATH, 'r') as f:
     report.text(f.read())
 
 # Save the report
-report.output(os.path.join(PATH, os.pardir, os.pardir, 'reports', FOLDER, '{}.pdf'.format(MODELNAME)))
+report.output(REPORTPATH)
 
 # cleanup the images
 os.remove('model_loss.jpg')
