@@ -1,7 +1,11 @@
 # ===== Config =====
 AUTHOR = 'Michiel Jacobs'
 VERSION = '0.1.0'
+<<<<<<< HEAD
 MODELTITLE = 'Report System Test'
+=======
+MODELTITLE = 'Hydra GPU System Test'
+>>>>>>> 392e2460963211e3fc41c5e5ae999c523b039edf
 MODELTYPE = '3D CNN'
 MAXHEAVYATOMS = 20
 FEATURE = 'Coulomb Matrix'
