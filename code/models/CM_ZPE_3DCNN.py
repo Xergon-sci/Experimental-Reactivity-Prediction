@@ -12,6 +12,10 @@ import pandas as pd
 import tensorflow as tf
 import numpy as np
 import pprint
+from scipy.stats import skew
+from scipy.stats import kurtosis
+from scipy.stats import tstd
+from scipy.stats import bayes_mvs
 from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras import losses
@@ -25,6 +29,7 @@ from plot_utility import plot_predictions
 from plot_utility import plot_errorhist
 from plot_utility import plot_loss
 from plot_utility import plot_metric
+from plot_utility import plot_errorbox
 
 # ===== Config =====
 # Model Info
@@ -140,7 +145,7 @@ log.info('Tensorisation of the coulomb matrices...')
 # tensorize the data
 data['tensors'] = data['coulomb_matrix'].apply(
     tensorise_coulomb_matrix,
-    positive_dimensions=POSITIVE_DIMENSIONS,
+    positive_dimension=POSITIVE_DIMENSIONS,
     negative_dimensions=NEGATIVE_DIMENSIONS)
 
 log.info('Building channels...')
@@ -294,8 +299,18 @@ log.info('Plotting ToP plot...')
 plot_predictions('ToP.jpg', test_labels, test_predictions, 'ev')
 log.info('Plotting Error histogram plot...')
 plot_errorhist('Error_hist.jpg', test_labels, test_predictions, 'ev')
+log.info('Plotting boxplot...')
+plot_errorbox('boxplot.jpg', test_labels, test_predictions, 'ev')
 
-# Calculate more metrics?
+error = test_predictions - test_labels
+test_error_mean = np.mean(error)
+test_error_min = np.min(error)
+test_error_max = np.max(error)
+test_error_median = np.median(error)
+test_error_skewness = skew(error)
+test_error_kurtosis = kurtosis(error)
+test_error_sd = tstd(error)
+test_error_CI = bayes_mvs(error)
 
 # ===== Step 6: Saving, reporting and cleanup =====
 log.info('============== Step 6: Saving, reporting and cleanup ==============')
@@ -307,7 +322,7 @@ log.info('Model saved.')
 
 # Generate the report
 log.info('Generating report...')
-report = Template(MODELTITLE, MODELTYPE + '' + VERSION, AUTHOR, MODELNAME)
+report = Template(MODELTITLE, MODELTYPE + ' v' + VERSION, AUTHOR, MODELNAME)
 
 # ===== Second page =====
 report.add_page()
@@ -341,7 +356,7 @@ report.head2('Network compile parameters:')
 report.label('Learningrate: ', LEARNINGRATE)
 report.label('Loss: ', LOSS)
 report.label('Optimizer: ', OPTIMIZER._name)
-report.label('Metrics: ', ''.join(METRICS))
+report.label('Metrics: ', ', '.join(METRICS))
 
 report.head2('Network fit parameters:')
 report.label('Batch size: ', BATCH_SIZE)
@@ -356,8 +371,9 @@ report.label('Restore best weights: ', RESTORE_BEST_WEIGHTS)
 
 report.head2('Neural network Layer settings:')
 for k in MODEL_SETTINGS:
-    report.label(k, MODEL_SETTINGS[k])
+    report.dict_label(k, MODEL_SETTINGS[k].replace('_', ' '))
 
+report.add_page()
 report.head2('NN summary')
 stringlist = []
 model.summary(print_fn=lambda x: stringlist.append(x))
@@ -371,13 +387,25 @@ report.head2('Training evaluation')
 report.image('model_loss.jpg', w=170)
 for m in METRICS:
     report.image('{}.jpg'.format(m), w=170)
+
 report.add_page()
 report.head2('Model evaluation')
 report.image('ToP.jpg', x=30, w=150)
 for m in METRICS:
-    report.label(m, test_scores[m])
+    report.dict_label(m, test_scores[m].replace('_', ' '))
+
 report.add_page()
+report.head2('Error evaluation')
 report.image('Error_hist.jpg', w=170)
+report.image('boxplot.jpg', w=10)
+report.label('Mean: ', test_error_mean)
+report.label('Median: ', test_error_median)
+report.label('Minimum error: ', test_error_min)
+report.label('Maximum error: ', test_error_max)
+report.label('Skewness: ', test_error_skewness)
+report.label('Kurtosis: ', test_error_kurtosis)
+report.label('Standard deviation: ', test_error_sd)
+report.label('90% Confidence interval: ', '[{};{}]'.format(test_error_CI[0][1][0], test_error_CI[0][1][1]))
 
 # ===== Last pages =====
 report.add_page()
@@ -394,6 +422,7 @@ for m in METRICS:
     os.remove('{}.jpg'.format(m))
 os.remove('ToP.jpg')
 os.remove('Error_hist.jpg')
+os.remove('boxplot.jpg')
 
 log.info('Removed images')
 

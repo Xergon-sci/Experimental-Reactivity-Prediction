@@ -6,7 +6,11 @@ def plot_predictions(name, labels, predictions, unit):
     plt.style.use('seaborn')
     plt.figure(figsize=(4,4), dpi=300)
     a = plt.axes(aspect='equal')
-    lim = (np.amin(labels)-0.5, np.amax(labels)+0.5)
+    plt.tight_layout()
+    minimum = np.amin(labels)
+    maximum = np.amax(labels)
+    diff = (maximum - minimum) /2
+    lim = (min-diff, max+diff)
     plt.plot(lim, lim, color='grey', linestyle='--', linewidth=1, zorder=1)
     plt.scatter(labels, predictions, marker='.', s=30, color='black', zorder=2)
     plt.xlim(lim)
@@ -21,9 +25,19 @@ def plot_errorhist(name, labels, predictions, unit):
     plt.style.use('seaborn')
     plt.figure(dpi=300)
     plt.hist(errors, bins=int(sqrt(len(errors))), color='black')
+    plt.axvline(np.mean(errors), color='orange', label='mean')
     plt.xlabel('Prediction error / {}'.format(unit))
     plt.ylabel('Error count')
     plt.title("Error histogram")
+    plt.legend()
+    plt.savefig(name)
+
+def plot_errorbox(name, labels, predictions, unit):
+    errors = predictions - labels
+    plt.style.use('seaborn')
+    plt.figure(dpi=300)
+    plt.boxplot(errors)
+    plt.title("Boxplot of errors")
     plt.savefig(name)
 
 def plot_loss(name, loss, val_loss, loss_unit):
@@ -40,8 +54,9 @@ def plot_loss(name, loss, val_loss, loss_unit):
 def plot_metric(name, metric, unit):
     plt.style.use('seaborn')
     plt.figure(dpi=300)
-    plt.plot(metric, color='black')
+    plt.plot(metric, label='unit', color='black')
     plt.xlabel('Epoch')
     plt.ylabel(unit)
     plt.title("{} during training".format(unit))
+    plt.legend()
     plt.savefig(name)
