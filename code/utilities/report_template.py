@@ -86,7 +86,7 @@ class Template(FPDF):
         self.cell(self.get_string_width(text),5, text, ln=1)
     
     def dict_label(self, label, text):
-        label = '{} :'.format(label)
+        label = '{}: '.format(label)
         text = str(text)
         self.set_text_color(0,0,0)
         self.set_font('verdana', size=9, style='B')

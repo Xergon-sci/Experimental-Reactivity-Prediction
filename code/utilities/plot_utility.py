@@ -4,13 +4,13 @@ from math import sqrt
 
 def plot_predictions(name, labels, predictions, unit):
     plt.style.use('seaborn')
-    plt.figure(figsize=(4,4), dpi=300)
+    plt.figure(figsize=(4.5, 4.1), dpi=300)
     a = plt.axes(aspect='equal')
-    plt.tight_layout()
+    plt.tight_layout(w_pad=300)
     minimum = np.amin(labels)
     maximum = np.amax(labels)
     diff = (maximum - minimum) /2
-    lim = (min-diff, max+diff)
+    lim = (minimum-diff, maximum+diff)
     plt.plot(lim, lim, color='grey', linestyle='--', linewidth=1, zorder=1)
     plt.scatter(labels, predictions, marker='.', s=30, color='black', zorder=2)
     plt.xlim(lim)
@@ -52,9 +52,10 @@ def plot_loss(name, loss, val_loss, loss_unit):
     plt.savefig(name)
 
 def plot_metric(name, metric, unit):
+    unit = unit.replace('_', ' ')
     plt.style.use('seaborn')
     plt.figure(dpi=300)
-    plt.plot(metric, label='unit', color='black')
+    plt.plot(metric, label=unit, color='black')
     plt.xlabel('Epoch')
     plt.ylabel(unit)
     plt.title("{} during training".format(unit))

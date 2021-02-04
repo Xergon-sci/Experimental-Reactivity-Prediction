@@ -34,7 +34,7 @@ from plot_utility import plot_errorbox
 # ===== Config =====
 # Model Info
 AUTHOR = 'Michiel Jacobs'
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 MODELTITLE = 'Predicting\nZero Point energies'
 MODELTYPE = '3D CNN'
 MAXHEAVYATOMS = 20
@@ -58,7 +58,7 @@ METRICS = ['mean_absolute_error', 'mean_squared_error']
 
 # Fit
 BATCH_SIZE = 32
-EPOCHS = 20
+EPOCHS = 2
 VALIDATION_SPLIT = 0.2
 SHUFFLE = True
 
@@ -371,7 +371,7 @@ report.label('Restore best weights: ', RESTORE_BEST_WEIGHTS)
 
 report.head2('Neural network Layer settings:')
 for k in MODEL_SETTINGS:
-    report.dict_label(k, MODEL_SETTINGS[k].replace('_', ' '))
+    report.dict_label(k.replace('_', ' '), MODEL_SETTINGS[k])
 
 report.add_page()
 report.head2('NN summary')
@@ -392,20 +392,22 @@ report.add_page()
 report.head2('Model evaluation')
 report.image('ToP.jpg', x=30, w=150)
 for m in METRICS:
-    report.dict_label(m, test_scores[m].replace('_', ' '))
+    report.dict_label(m.replace('_', ' '), round(test_scores[m],4))
 
 report.add_page()
 report.head2('Error evaluation')
 report.image('Error_hist.jpg', w=170)
-report.image('boxplot.jpg', w=10)
-report.label('Mean: ', test_error_mean)
-report.label('Median: ', test_error_median)
-report.label('Minimum error: ', test_error_min)
-report.label('Maximum error: ', test_error_max)
-report.label('Skewness: ', test_error_skewness)
-report.label('Kurtosis: ', test_error_kurtosis)
-report.label('Standard deviation: ', test_error_sd)
-report.label('90% Confidence interval: ', '[{};{}]'.format(test_error_CI[0][1][0], test_error_CI[0][1][1]))
+report.image('boxplot.jpg', w=170)
+
+report.add_page()
+report.label('Mean: ', round(test_error_mean, 4))
+report.label('Median: ', round(test_error_median, 4))
+report.label('Minimum error: ', round(test_error_min, 4))
+report.label('Maximum error: ', round(test_error_max, 4))
+report.label('Skewness: ', round(test_error_skewness, 4))
+report.label('Kurtosis: ', round(test_error_kurtosis, 4))
+report.label('Standard deviation: ', round(test_error_sd, 4))
+report.label('90% Confidence interval: ', '[{};{}]'.format(round(test_error_CI[0][1][0], 4), round(test_error_CI[0][1][1], 4)))
 
 # ===== Last pages =====
 report.add_page()
