@@ -34,7 +34,7 @@ from plot_utility import plot_errorbox
 # ===== Config =====
 # Model Info
 AUTHOR = 'Michiel Jacobs'
-VERSION = '0.1.1'
+VERSION = '0.1.2'
 MODELTITLE = 'Predicting\nZero Point energies'
 MODELTYPE = '3D CNN'
 MAXHEAVYATOMS = 20
@@ -51,14 +51,14 @@ SPLIT_RATIO = 0.80
 
 # Settings of the NN
 # Compilation
-LEARNINGRATE = 0.001
+LEARNINGRATE = 0.0001
 LOSS = 'mean_squared_error'
 OPTIMIZER = optimizers.Adam(LEARNINGRATE)
 METRICS = ['mean_absolute_error', 'mean_squared_error']
 
 # Fit
-BATCH_SIZE = 32
-EPOCHS = 2
+BATCH_SIZE = 128
+EPOCHS = 500
 VALIDATION_SPLIT = 0.2
 SHUFFLE = True
 

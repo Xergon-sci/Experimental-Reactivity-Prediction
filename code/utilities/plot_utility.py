@@ -4,7 +4,7 @@ from math import sqrt
 
 def plot_predictions(name, labels, predictions, unit):
     plt.style.use('seaborn')
-    plt.figure(figsize=(4.5, 4.1), dpi=300)
+    plt.figure(figsize=(4, 4), dpi=300)
     a = plt.axes(aspect='equal')
     plt.tight_layout(w_pad=300)
     minimum = np.amin(labels)
