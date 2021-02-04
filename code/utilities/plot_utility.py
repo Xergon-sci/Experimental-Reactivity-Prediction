@@ -36,3 +36,12 @@ def plot_loss(name, loss, val_loss, loss_unit):
     plt.title("Loss during training")
     plt.legend()
     plt.savefig(name)
+
+def plot_metric(name, metric, unit):
+    plt.style.use('seaborn')
+    plt.figure(dpi=300)
+    plt.plot(metric, color='black')
+    plt.xlabel('Epoch')
+    plt.ylabel(unit)
+    plt.title("{} during training".format(unit))
+    plt.savefig(name)
