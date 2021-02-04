@@ -12,6 +12,7 @@ import pandas as pd
 import tensorflow as tf
 import numpy as np
 import pprint
+import platform
 from scipy.stats import skew
 from scipy.stats import kurtosis
 from scipy.stats import tstd
@@ -34,7 +35,7 @@ from plot_utility import plot_errorbox
 # ===== Config =====
 # Model Info
 AUTHOR = 'Michiel Jacobs'
-VERSION = '0.1.2'
+VERSION = '0.1.3'
 MODELTITLE = 'Predicting\nZero Point energies'
 MODELTYPE = '3D CNN'
 MAXHEAVYATOMS = 20
@@ -105,6 +106,10 @@ log.info('Maximum heavy atoms: {}'.format(MAXHEAVYATOMS))
 log.info('Feature: {}'.format(FEATURE))
 log.info('Labels: {}'.format(LABEL))
 log.info('DEVELOPMENT: {}'.format(DEVMODE))
+log.info('Platform: ', platform.platform())
+log.info('OS: ', platform.system())
+log.info('Version: ', platform.version())
+log.info('Processor: ', platform.processor())
 
 # ===== Step 1: Load data =====
 log.info('============== Step 1: loading data ==============')
@@ -334,6 +339,12 @@ report.label('Version: ', VERSION)
 report.label('Type: ', MODELTYPE)
 report.label('Feature: ', FEATURE)
 report.label('Label: ', LABEL)
+
+report.head2('System information')
+report.label('Platform: ', platform.platform())
+report.label('OS: ', platform.system())
+report.label('Version: ', platform.version())
+report.label('Processor', platform.processor())
 
 report.head2('Data:')
 report.label('Maximum heavy atoms: ', MAXHEAVYATOMS)
