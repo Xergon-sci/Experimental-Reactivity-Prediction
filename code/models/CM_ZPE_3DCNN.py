@@ -43,7 +43,7 @@ FEATURE = 'Coulomb Matrix'
 LABEL = 'Zero point energy'
 
 # Development
-DEVMODE = True
+DEVMODE = False
 
 # Data preprocessing
 POSITIVE_DIMENSIONS = 0
