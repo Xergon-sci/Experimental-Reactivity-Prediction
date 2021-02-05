@@ -110,6 +110,7 @@ log.info('Platform: {}'.format(platform.platform()))
 log.info('OS: {}'.format(platform.system()))
 log.info('Version: {}'.format(platform.version()))
 log.info('Processor: {}'.format(platform.processor()))
+log.info("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 
 # ===== Step 1: Load data =====
 log.info('============== Step 1: loading data ==============')
