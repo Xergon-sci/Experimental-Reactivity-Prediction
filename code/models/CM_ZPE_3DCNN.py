@@ -37,7 +37,7 @@ from plot_utility import plot_errorbox
 AUTHOR = 'Michiel Jacobs'
 VERSION = '0.1.3'
 MODELTITLE = 'Predicting\nZero Point energies'
-MODELTYPE = '3D CNN'
+MODELTYPE = '3D CNN GPU'
 MAXHEAVYATOMS = 20
 FEATURE = 'Coulomb Matrix'
 LABEL = 'Zero point energy'
