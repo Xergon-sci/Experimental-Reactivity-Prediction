@@ -157,10 +157,6 @@ log.info('Building channels...')
 # wrap the matrix to provide channels
 data['tensors_channels'] = data['tensors'].apply(np.expand_dims, axis=3)
 
-# Convert data to tf tensors
-log.info('Converting data to tf.tensors')
-data['features'] = data['tensors_channels'].apply(tf.convert_to_tensor)
-
 log.info('Calculating train test split...')
 DATASETLENGHT = data.shape[0]
 log.info('There are {} entries in this dataset.'.format(DATASETLENGHT))
@@ -175,14 +171,14 @@ train = data.iloc[:train_size,:]
 test = data.iloc[train_size:,:]
 
 log.info('Converting train features to array...')
-train_features = np.array(train['features'].values.tolist())
+train_features = np.array(train['tensors_channels'].to_numpy().tolist())
 log.info('Converting test features to array...')
-test_features = np.array(test['features'].values.tolist())
+test_features = np.array(test['tensors_channels'].to_numpy().tolist())
 log.info('Converting train labels to array...')
-zpe = train['zero_point_energy'].values.astype(np.float).tolist()
+zpe = train['zero_point_energy'].to_numpy(dtype=np.float).tolist()
 train_labels = np.array(zpe)
 log.info('Converting test labels to array...')
-test_zpe = test['zero_point_energy'].values.astype(np.float).tolist()
+test_zpe = test['zero_point_energy'].to_numpy(dtype=np.float).tolist()
 test_labels = np.array(test_zpe)
 
 # ===== Step 3: Model compilation =====
