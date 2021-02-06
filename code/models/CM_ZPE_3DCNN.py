@@ -174,9 +174,6 @@ log.info('Building train and test sets...')
 train = data.iloc[:train_size,:]
 test = data.iloc[train_size:,:]
 
-
-print(type(train['features'].values[0]))
-
 log.info('Converting train features to array...')
 train_features = np.array(train['features'].values.tolist())
 log.info('Converting test features to array...')
