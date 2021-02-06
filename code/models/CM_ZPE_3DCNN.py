@@ -43,7 +43,7 @@ FEATURE = 'Coulomb Matrix'
 LABEL = 'Zero point energy'
 
 # Development
-DEVMODE = False
+DEVMODE = True
 
 # Data preprocessing
 POSITIVE_DIMENSIONS = 0
@@ -110,7 +110,6 @@ log.info('Platform: {}'.format(platform.platform()))
 log.info('OS: {}'.format(platform.system()))
 log.info('Version: {}'.format(platform.version()))
 log.info('Processor: {}'.format(platform.processor()))
-log.info("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 
 # ===== Step 1: Load data =====
 log.info('============== Step 1: loading data ==============')
@@ -156,7 +155,7 @@ data['tensors'] = data['coulomb_matrix'].apply(
 
 log.info('Building channels...')
 # wrap the matrix to provide channels
-data['features'] = data['tensors'].apply(np.expand_dims, axis=3)
+data['tensors_channels'] = data['tensors'].apply(np.expand_dims, axis=3)
 
 log.info('Calculating train test split...')
 DATASETLENGHT = data.shape[0]
@@ -171,27 +170,15 @@ log.info('Building train and test sets...')
 train = data.iloc[:train_size,:]
 test = data.iloc[train_size:,:]
 
-# Convert data to tf tensors
-log.info('Converting train features to tf.tensors...')
-train_tensor_list = []
-for t in train['features'].values:
-    t = tf.convert_to_tensor(t)
-    train_tensor_list.append(t)
-train_features = np.array(train_tensor_list)
-
-log.info('Converting test features to tf.tensors...')
-test_tensor_list = []
-for t in test['features'].values:
-    t = tf.convert_to_tensor(t)
-    test_tensor_list.append(t)
-test_features = np.array(test_tensor_list)
-
+log.info('Converting train features to array...')
+train_features = np.array(train['tensors_channels'].to_numpy().tolist())
+log.info('Converting test features to array...')
+test_features = np.array(test['tensors_channels'].to_numpy().tolist())
 log.info('Converting train labels to array...')
-zpe = train['zero_point_energy'].values.astype(np.float).tolist()
+zpe = train['zero_point_energy'].to_numpy(dtype=np.float).tolist()
 train_labels = np.array(zpe)
-
 log.info('Converting test labels to array...')
-test_zpe = test['zero_point_energy'].values.astype(np.float).tolist()
+test_zpe = test['zero_point_energy'].to_numpy(dtype=np.float).tolist()
 test_labels = np.array(test_zpe)
 
 # ===== Step 3: Model compilation =====
