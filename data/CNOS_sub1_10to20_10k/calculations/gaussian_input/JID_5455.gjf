@@ -1,0 +1,65 @@
+%chk=JID_5455.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_121448920_JID_5455_neutraal
+
+0 1
+C          1.64233       -3.82807       -0.55493
+C          2.92061       -3.65077       -1.32888
+C          2.51412       -2.62408       -0.29582
+C          2.06643       -1.22427       -0.64874
+C          1.61805       -1.02052       -2.11898
+O          0.64071       -1.51788       -2.66060
+N          2.49300       -0.17996       -2.73461
+C          3.46860        0.20205       -1.88317
+O          4.41303        0.92401       -2.14537
+N          3.22823       -0.36587       -0.65955
+C          0.95019       -0.69593        0.27264
+C          1.26878       -0.67706        1.76647
+C          2.18642        0.44872        2.14581
+O          1.85322        1.59003        2.41202
+O          3.48618        0.09310        2.14519
+H          1.61134       -4.60684        0.19948
+H          0.70801       -3.70513       -1.09265
+H          3.75187       -4.30644       -1.09079
+H          2.83964       -3.42561       -2.38601
+H          3.08850       -2.63471        0.62716
+H          2.43900        0.10341       -3.69714
+H          3.87966       -0.25825        0.10955
+H          0.65876        0.31549       -0.04315
+H          0.05994       -1.32390        0.13253
+H          0.34062       -0.52537        2.33192
+H          1.67560       -1.62736        2.12554
+H          3.94603        0.91008        2.44191
+
+--Link1--
+%chk=JID_5455.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_121448920_JID_5455_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_5455.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_121448920_JID_5455_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_5455.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_121448920_JID_5455_Energie_anion
+
+-1 2
