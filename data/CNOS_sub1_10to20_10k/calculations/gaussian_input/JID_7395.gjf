@@ -1,0 +1,65 @@
+%chk=JID_7395.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_53375893_JID_7395_neutraal
+
+0 1
+C         -1.46800        1.58800        0.45900
+C         -2.14675        0.32080        0.04916
+C         -3.43179        0.10175       -0.27809
+C         -4.42289        1.11556       -0.35155
+C         -4.41860        2.34782       -0.99766
+C         -5.67591        2.96023       -0.78129
+C         -6.39948        2.06974       -0.03193
+O         -5.66624        0.95934        0.21934
+C         -1.24338       -0.86366        0.07391
+O         -1.65095       -2.01588        0.14650
+C          0.19992       -0.55919        0.00200
+C          1.14337       -1.58930        0.07091
+C          2.50107       -1.29328       -0.05963
+C          2.91172        0.02432       -0.27085
+C          1.96771        1.05073       -0.34363
+C          0.61310        0.76048       -0.19002
+O         -0.26078        1.81125       -0.28079
+H         -2.09165        2.47173        0.31147
+H         -1.22908        1.56212        1.53108
+H         -3.78092       -0.91147       -0.46976
+H         -3.59789        2.75106       -1.57566
+H         -6.01527        3.92179       -1.13924
+H         -7.40087        2.07033        0.37549
+H          0.82335       -2.61936        0.21374
+H          3.23779       -2.09172       -0.00860
+H          3.96935        0.25167       -0.38310
+H          2.28998        2.07480       -0.51293
+
+--Link1--
+%chk=JID_7395.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_53375893_JID_7395_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_7395.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_53375893_JID_7395_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_7395.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_53375893_JID_7395_Energie_anion
+
+-1 2
