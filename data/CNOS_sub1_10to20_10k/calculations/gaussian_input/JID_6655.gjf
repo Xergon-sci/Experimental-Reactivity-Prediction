@@ -1,0 +1,64 @@
+%chk=JID_6655.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_44604684_JID_6655_neutraal
+
+0 1
+C         -1.64900        1.20400        0.12700
+C         -2.61229        0.26348       -0.58218
+S         -1.84598       -1.37366       -0.41687
+C         -0.27157       -0.69610       -0.21690
+C          0.85271       -1.40335       -0.27064
+C          2.07639       -0.60243       -0.06812
+N          2.07439        0.66417        0.20594
+C          0.88478        1.35346        0.29641
+S          0.90007        2.98768        0.72808
+N         -0.28886        0.65551        0.02248
+C          3.37971       -1.32179       -0.16078
+C          3.57613       -2.39492       -1.03972
+C          4.81643       -3.03644       -1.09542
+C          5.86486       -2.60619       -0.28290
+C          5.68068       -1.52832        0.58133
+C          4.44365       -0.88386        0.63928
+H         -1.89239        1.28547        1.19413
+H         -1.70276        2.20639       -0.30960
+H         -3.61627        0.29330       -0.15093
+H         -2.67565        0.50773       -1.64761
+H          0.87920       -2.47146       -0.42420
+H          2.78899       -2.73087       -1.70816
+H          4.96887       -3.86680       -1.78078
+H          6.83015       -3.10448       -0.33057
+H          6.50034       -1.18444        1.20733
+H          4.31307       -0.03899        1.31283
+
+--Link1--
+%chk=JID_6655.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_44604684_JID_6655_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_6655.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_44604684_JID_6655_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_6655.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_44604684_JID_6655_Energie_anion
+
+-1 2
