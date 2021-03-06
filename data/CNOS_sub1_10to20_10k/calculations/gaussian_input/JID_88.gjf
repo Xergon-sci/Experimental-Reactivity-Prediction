@@ -1,0 +1,66 @@
+%chk=JID_88.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_5352149_JID_88_neutraal
+
+0 1
+C          1.06676       -0.05704        0.04785
+C          0.26702        1.01684        0.78343
+C         -0.93924        0.48375        1.59094
+C         -1.69853       -0.75737        1.11603
+C         -2.42535       -0.73325       -0.22688
+C         -3.53279        0.31514       -0.39284
+C         -3.07631        1.75408       -0.64743
+C         -1.99143        1.83261       -1.67898
+C         -0.68499        2.00910       -1.42971
+C         -0.05202        2.24987       -0.09044
+H          0.50583       -0.51186       -0.77187
+H          1.36714       -0.85374        0.73666
+H          1.98134        0.37148       -0.37673
+H          0.95132        1.41280        1.55023
+H         -1.64064        1.29365        1.81355
+H         -0.53950        0.20862        2.57901
+H         -1.00663       -1.60932        1.10948
+H         -2.44027       -0.99920        1.88952
+H         -1.70992       -0.68626       -1.05195
+H         -2.90536       -1.71611       -0.33503
+H         -4.19740        0.29586        0.47936
+H         -4.14905        0.00593       -1.24821
+H         -2.77978        2.23010        0.28942
+H         -3.93291        2.34126       -1.00158
+H         -2.30371        1.67733       -2.71059
+H         -0.00021        1.99921       -2.27689
+H         -0.64778        2.96984        0.48433
+H          0.89331        2.77635       -0.28503
+
+--Link1--
+%chk=JID_88.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_5352149_JID_88_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_88.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_5352149_JID_88_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_88.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_5352149_JID_88_Energie_anion
+
+-1 2
