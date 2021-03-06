@@ -1,0 +1,66 @@
+%chk=JID_82.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_123448381_JID_82_neutraal
+
+0 1
+C          0.96411        0.06820        0.06372
+C          0.38950       -0.39112       -1.26550
+C          1.10454       -1.56648       -1.95103
+C          2.20805       -2.33822       -1.19723
+C          1.60912       -3.68428       -0.79089
+C          0.53801       -3.94321       -1.80685
+C          0.16096       -2.63922       -2.45858
+C         -0.88049       -3.43704       -1.67113
+C         -1.39089       -2.99869       -0.32271
+C         -1.93832       -4.14825       -2.48498
+H          0.91859       -0.72332        0.81728
+H          0.39006        0.91968        0.44411
+H          2.00274        0.39520       -0.04674
+H         -0.67900       -0.59047       -1.14091
+H          0.42240        0.46618       -1.95210
+H          1.59593       -1.13225       -2.83413
+H          3.02697       -2.53485       -1.90347
+H          2.65922       -1.81226       -0.35377
+H          1.20895       -3.64794        0.22630
+H          2.37368       -4.46803       -0.81150
+H          0.75076       -4.79118       -2.44537
+H          0.06575       -2.61276       -3.53914
+H         -1.71963       -3.86985        0.25438
+H         -0.64776       -2.47396        0.27981
+H         -2.25101       -2.33130       -0.44269
+H         -1.55348       -4.48712       -3.45305
+H         -2.30740       -5.02702       -1.94587
+H         -2.78343       -3.47875       -2.67605
+
+--Link1--
+%chk=JID_82.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_123448381_JID_82_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_82.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_123448381_JID_82_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_82.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_123448381_JID_82_Energie_anion
+
+-1 2
