@@ -1,0 +1,69 @@
+%chk=JID_4921.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_5222406_JID_4921_neutraal
+
+0 1
+C          1.03262        0.09325        0.01547
+C          1.00072        1.17780        1.07777
+O          2.11734        1.11876        1.96324
+C          3.35360        1.49007        1.36932
+C          4.21371        2.39110        2.29498
+N          5.43519        2.78290        2.04746
+N          6.03459        2.28453        0.92370
+C          7.28811        2.68374        0.55223
+S          8.09447        2.00644       -0.72845
+N          7.82520        3.68164        1.29224
+C          3.55505        2.93109        3.54196
+O          4.06304        0.37363        0.83492
+C          4.15795       -0.76746        1.68751
+C          5.19968       -0.61908        2.78060
+H          0.10430        0.09596       -0.56334
+H          1.16021       -0.89313        0.47232
+H          1.86488        0.24064       -0.67913
+H          0.92771        2.17389        0.62652
+H          0.10557        1.04033        1.69350
+H          3.15273        2.14760        0.51214
+H          5.61528        1.49748        0.42528
+H          7.31669        3.95361        2.12476
+H          8.77410        3.99136        1.14332
+H          4.25276        3.55398        4.10863
+H          2.68778        3.53456        3.26073
+H          3.23149        2.10028        4.17455
+H          3.18321       -1.03647        2.10706
+H          4.45775       -1.60142        1.04345
+H          4.89089        0.11401        3.52987
+H          5.35161       -1.57346        3.29397
+H          6.15705       -0.28839        2.36687
+
+--Link1--
+%chk=JID_4921.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_5222406_JID_4921_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_4921.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_5222406_JID_4921_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_4921.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_5222406_JID_4921_Energie_anion
+
+-1 2
