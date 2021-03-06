@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# Author Michiel Jacobs
+
+# Declare the PBS Directives
+#PBS -N JID
+#PBS -l nodes=1:ppn=4
+#PBS -l walltime=24:00:00
+#PBS -l pmem=8gb
+#PBS -t 9349,3637,5612,10045,4121,10439,6476,10896,7410,96,2804,10902,8224,5194,10722,10155,5828,4691,1744,6466,9191,4544,8447,10364,407,7300,10357,3239,4441,3192,4993,557,208,8440,5061,10035,5094,5088,878,8068,8058,1832,342,3950,8991,87,7582,1939,1441,9546,615,1348,7778,3877,10497,1922,3269,2412,3201
+
+#Declare input
+INPUT="JID_$PBS_ARRAYID.gjf"
+OUTPUT="JID_$PBS_ARRAYID.log"
+
+#Load the Gaussian module
+module purge
+module load Gaussian/G16.A.03-intel-2017b
+
+# Set the Gaussian scratch directory to a subfolder in the user Scratch
+cd $WORKDIR
+export GAUSS_SCRDIR=$WORKDIR/$PBS_JOBID/
+mkdir -p $GAUSS_SCRDIR
+cd $GAUSS_SCRDIR
+
+# Run Gaussian
+echo running sub-job with arrayID: $PBS_ARRAYID
+time g16 <$PBS_O_WORKDIR/gaussian_input/${INPUT}> $PBS_O_WORKDIR/gaussian_output/${OUTPUT}
+
+# Cleanup
+cd $WORKDIR
+rm -r $GAUSS_SCRDIR
