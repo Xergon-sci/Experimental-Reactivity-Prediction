@@ -1,0 +1,66 @@
+%chk=JID_6302.chk
+%mem=8GB
+%nprocshared=4
+# opt=(cartesian,calcfc) freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_273422_JID_6302_neutraal
+
+0 1
+C          1.01514        0.02318        0.09609
+C          1.57506       -0.85163       -1.01019
+O          1.75328       -2.19501       -0.53725
+C          2.93858       -2.44450        0.10248
+O          3.81823       -1.61516        0.29939
+C          2.97544       -3.90109        0.59829
+C          2.43441       -4.08707        2.01034
+C          2.58518       -3.08593        2.98898
+C          2.10100       -3.32596        4.25977
+C          1.49873       -4.51293        4.59718
+C          1.35149       -5.53100        3.68415
+C          1.83036       -5.31525        2.38673
+O          1.10042       -4.54345        5.89640
+C          1.52428       -3.23798        6.34030
+O          2.15971       -2.45857        5.30590
+O          2.27229       -4.75434       -0.31429
+H          0.08274       -0.39919        0.48498
+H          0.81868        1.03440       -0.27112
+H          1.71089        0.08665        0.93869
+H          0.86177       -0.89699       -1.83965
+H          2.50987       -0.44395       -1.41164
+H          4.02171       -4.22648        0.57940
+H          3.07415       -2.13852        2.78189
+H          0.88773       -6.47053        3.96284
+H          1.73639       -6.12130        1.65902
+H          0.64744       -2.68965        6.70346
+H          2.23022       -3.36160        7.16960
+H          1.42231       -4.30615       -0.48534
+
+--Link1--
+%chk=JID_6302.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_273422_JID_6302_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_6302.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_273422_JID_6302_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_6302.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_273422_JID_6302_Energie_anion
+
+-1 2
