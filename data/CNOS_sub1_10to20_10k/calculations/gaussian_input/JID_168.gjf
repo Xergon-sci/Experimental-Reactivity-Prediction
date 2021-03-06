@@ -1,0 +1,65 @@
+%chk=JID_168.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_88132980_JID_168_neutraal
+
+0 1
+C          0.99990        0.08016        0.05979
+C          1.33549       -1.35125       -0.32677
+C          1.31513       -2.32753        0.85221
+C         -0.01834       -2.44069        1.60153
+C         -1.19178       -2.92366        0.74722
+N         -0.96413       -4.30672        0.35379
+C         -0.94655       -4.68448       -0.87013
+C         -1.13959       -3.90275       -2.11424
+C         -0.96076       -4.50211       -3.30030
+C         -1.11022       -3.79694       -4.60944
+H         -0.03770        0.17291        0.39358
+H          1.13012        0.74236       -0.80224
+H          1.65586        0.43471        0.86103
+H          0.65149       -1.68394       -1.11314
+H          2.33968       -1.36631       -0.76764
+H          1.61304       -3.31849        0.48867
+H          2.08660       -2.02422        1.57128
+H          0.12079       -3.13340        2.44163
+H         -0.27462       -1.47187        2.04517
+H         -2.09991       -2.89618        1.36100
+H         -1.36821       -2.23292       -0.07911
+H         -0.75147       -5.75942       -1.03411
+H         -1.41270       -2.85957       -2.04581
+H         -0.68094       -5.55198       -3.35551
+H         -0.16637       -3.83564       -5.16197
+H         -1.88218       -4.28617       -5.21088
+H         -1.38883       -2.74573       -4.48440
+
+--Link1--
+%chk=JID_168.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_88132980_JID_168_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_168.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_88132980_JID_168_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_168.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_88132980_JID_168_Energie_anion
+
+-1 2

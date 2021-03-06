@@ -1,0 +1,67 @@
+%chk=JID_2701.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_130650641_JID_2701_neutraal
+
+0 1
+C          1.06062       -0.01814        0.07743
+C          1.46302        0.14682        1.53213
+N          1.57746        1.55925        1.86198
+C          2.65198        2.22053        1.63894
+N          3.81439        1.75922        1.09811
+N          2.79900        3.55456        1.91772
+C          1.61765        4.31193        2.34134
+C          1.53633        5.81397        2.24326
+C          0.67316        4.95637        1.36404
+C          1.03475        5.23481       -0.06543
+C          1.72941        6.59873       -0.01230
+C          2.42008        6.64178        1.35490
+H          0.12588        0.51270       -0.13170
+H          0.91409       -1.07637       -0.15954
+H          1.82700        0.37885       -0.59569
+H          0.68268       -0.28722        2.16751
+H          2.37585       -0.41521        1.75591
+H          4.62891        2.10966        1.58872
+H          3.86086        0.75294        1.01623
+H          3.40948        4.00860        1.25092
+H          1.16267        3.87017        3.22701
+H          1.06589        6.37104        3.04177
+H         -0.39000        4.90985        1.55313
+H          1.70850        4.46774       -0.46116
+H          0.14935        5.27140       -0.70768
+H          2.42520        6.75106       -0.84214
+H          0.97174        7.39112       -0.05842
+H          3.42978        6.22300        1.29775
+H          2.50356        7.67172        1.71595
+
+--Link1--
+%chk=JID_2701.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_130650641_JID_2701_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_2701.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_130650641_JID_2701_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_2701.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_130650641_JID_2701_Energie_anion
+
+-1 2

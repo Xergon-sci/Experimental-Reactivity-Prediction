@@ -1,0 +1,65 @@
+%chk=JID_4265.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_4684708_JID_4265_neutraal
+
+0 1
+C         -1.77500        1.87900       -0.01600
+C         -0.76806        0.76131       -0.00414
+C          0.60026        1.07546        0.03331
+C          1.59031        0.07682        0.02771
+C          1.19685       -1.27317       -0.00285
+C         -0.17370       -1.58653       -0.04719
+C         -1.16031       -0.58645       -0.06440
+C         -2.60992       -0.98544       -0.10382
+C          2.17163       -2.35915        0.01637
+C          2.14350       -3.41901       -0.87183
+S          3.43920       -4.49485       -0.54437
+C          3.93383       -3.47179        0.73899
+N          3.20813       -2.39422        0.93584
+C          3.03589        0.49330        0.08252
+H         -1.31744        2.83223        0.26979
+H         -2.19848        1.99123       -1.01894
+H         -2.58019        1.68541        0.69974
+H          0.90364        2.12105        0.06940
+H         -0.48256       -2.63069       -0.05245
+H         -3.08283       -0.78261        0.86216
+H         -3.13882       -0.43925       -0.89138
+H         -2.72634       -2.05294       -0.31948
+H          1.45080       -3.60792       -1.67934
+H          4.79730       -3.70504        1.34816
+H          3.15147        1.55762       -0.15026
+H          3.44187        0.32355        1.08443
+H          3.62991       -0.05478       -0.65593
+
+--Link1--
+%chk=JID_4265.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_4684708_JID_4265_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_4265.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_4684708_JID_4265_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_4265.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_4684708_JID_4265_Energie_anion
+
+-1 2

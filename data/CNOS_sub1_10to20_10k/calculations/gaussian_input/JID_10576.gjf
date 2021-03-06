@@ -1,0 +1,65 @@
+%chk=JID_10576.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_80873097_JID_10576_neutraal
+
+0 1
+C          1.34400       -0.22500        0.03600
+C          0.56804        0.77946        0.61223
+C         -0.78560        0.91003        0.27849
+C         -1.39638        0.03213       -0.63067
+C         -0.58754       -0.95653       -1.20608
+C          0.76950       -1.10072       -0.88084
+N         -1.12655       -1.89207       -2.16471
+O         -1.16254       -1.53289       -3.34733
+O         -1.45931       -3.00114       -1.72451
+S         -3.12613        0.31069       -0.97615
+C         -3.89748       -1.18999       -0.39582
+N         -4.49735       -1.88649       -1.38586
+C         -5.07387       -3.04642       -1.04702
+N         -5.11418       -3.56846        0.18747
+C         -4.51395       -2.86730        1.16145
+C         -3.90733       -1.65356        0.90265
+N         -3.30168       -0.92244        1.96684
+O         -3.76687        0.19192        2.23845
+O         -2.33479       -1.45435        2.53246
+N         -4.61719       -3.43612        2.42995
+H          2.39477       -0.32061        0.30137
+H          1.01539        1.46755        1.32746
+H         -1.35919        1.70901        0.74915
+H          1.37412       -1.88260       -1.33566
+H         -5.55019       -3.61269       -1.84070
+H         -5.07105       -4.34354        2.33544
+H         -3.72091       -3.51794        2.90675
+
+--Link1--
+%chk=JID_10576.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_80873097_JID_10576_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_10576.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_80873097_JID_10576_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_10576.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_80873097_JID_10576_Energie_anion
+
+-1 2

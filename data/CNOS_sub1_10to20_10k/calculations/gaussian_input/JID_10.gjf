@@ -1,0 +1,66 @@
+%chk=JID_10.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_13778421_JID_10_neutraal
+
+0 1
+C          1.01872       -0.08983       -0.03976
+C          0.53217        0.05529        1.39211
+C          0.89092        1.40442        2.03120
+C          0.42909        2.66240        1.23920
+C         -1.10737        2.68596        1.12365
+C          0.98432        3.99065        1.85697
+C          2.52023        4.00291        1.90188
+C          0.51061        5.22641        1.07719
+O          0.51531        4.10370        3.20732
+O          0.34330        1.40437        3.35091
+H          0.46579        0.56300       -0.72126
+H          0.87057       -1.11907       -0.38261
+H          2.08529        0.14222       -0.12039
+H         -0.54745       -0.12724        1.44312
+H          0.97902       -0.74241        2.00045
+H          1.97971        1.41836        2.14037
+H          0.83281        2.59565        0.22111
+H         -1.58622        2.83084        2.09728
+H         -1.44380        3.48525        0.45683
+H         -1.49207        1.75627        0.69442
+H          2.95314        3.78093        0.92126
+H          2.89300        4.98196        2.22557
+H          2.91112        3.29064        2.63552
+H         -0.56664        5.38623        1.18761
+H          0.98095        6.13773        1.46487
+H          0.75358        5.14466        0.01266
+H          0.79177        4.97464        3.54596
+H          0.33174        2.33977        3.64883
+
+--Link1--
+%chk=JID_10.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_13778421_JID_10_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_10.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_13778421_JID_10_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_10.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_13778421_JID_10_Energie_anion
+
+-1 2
