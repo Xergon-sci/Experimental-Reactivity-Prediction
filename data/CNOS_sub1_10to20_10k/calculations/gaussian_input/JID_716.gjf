@@ -1,0 +1,66 @@
+%chk=JID_716.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_140112499_JID_716_neutraal
+
+0 1
+C          1.07488        0.03289        0.05755
+C          0.67195       -0.26181        1.49378
+C          1.61149        0.44372        2.47291
+C          1.24583        0.28584        3.97053
+C          0.51976        1.65270        3.89997
+C          1.41974        1.98299        2.66011
+C          2.72986        2.73595        2.85708
+C          0.58244        2.48672        5.17067
+O         -0.37103        3.55044        5.12338
+C          0.08590        4.69450        4.41953
+H          1.01176        1.10317       -0.16184
+H          0.41628       -0.49642       -0.63798
+H          2.10391       -0.28792       -0.13488
+H          0.71833       -1.34442        1.65962
+H         -0.36823        0.04444        1.65147
+H          2.64867        0.14105        2.27390
+H          0.61273       -0.56884        4.22652
+H          2.12111        0.27463        4.63169
+H         -0.53227        1.51071        3.60700
+H          0.85010        2.46261        1.85377
+H          3.32301        2.71258        1.93682
+H          2.54533        3.78541        3.10227
+H          3.33596        2.30125        3.65835
+H          0.28479        1.86046        6.01913
+H          1.58670        2.86330        5.39288
+H          1.03419        5.05287        4.83091
+H          0.18849        4.47642        3.35386
+H         -0.66055        5.48551        4.53316
+
+--Link1--
+%chk=JID_716.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_140112499_JID_716_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_716.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_140112499_JID_716_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_716.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_140112499_JID_716_Energie_anion
+
+-1 2
