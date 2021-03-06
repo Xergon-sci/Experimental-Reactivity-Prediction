@@ -1,0 +1,66 @@
+%chk=JID_6446.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_22033776_JID_6446_neutraal
+
+0 1
+C          1.03069       -0.07388       -0.06000
+C          0.62128        0.51425       -1.19780
+C         -0.78436        0.39031       -1.72611
+C         -1.66340        1.61680       -1.43288
+C         -1.36186        2.83499       -2.27393
+C         -1.63380        2.83273       -3.64932
+C         -1.36408        3.96031       -4.42868
+C         -0.82542        5.10963       -3.84065
+C         -0.55245        5.11975       -2.46846
+C         -0.81886        3.98813       -1.69112
+C         -0.56351        6.28426       -4.70698
+O         -0.73310        6.33412       -5.91105
+O         -0.10640        7.34821       -4.02302
+C          1.63082        1.28653       -1.95396
+O          2.61616        1.83308       -1.49150
+O          1.37114        1.30523       -3.26975
+H          0.35459       -0.66575        0.54802
+H          2.05351        0.02495        0.29606
+H         -0.77723        0.15550       -2.79681
+H         -1.26250       -0.47593       -1.24832
+H         -2.71346        1.34755       -1.60881
+H         -1.60175        1.87196       -0.36678
+H         -2.05513        1.94981       -4.12556
+H         -1.57914        3.93849       -5.49528
+H         -0.13253        6.00267       -1.99249
+H         -0.59732        4.01633       -0.62589
+H          0.00970        8.03635       -4.71115
+H          2.08771        1.86065       -3.63941
+
+--Link1--
+%chk=JID_6446.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_22033776_JID_6446_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_6446.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_22033776_JID_6446_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_6446.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_22033776_JID_6446_Energie_anion
+
+-1 2
