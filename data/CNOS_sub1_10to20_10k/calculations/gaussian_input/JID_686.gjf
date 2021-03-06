@@ -1,0 +1,66 @@
+%chk=JID_686.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_54205534_JID_686_neutraal
+
+0 1
+C          1.02836        0.07074        0.06475
+C          0.31925        1.26341        0.75944
+C          1.13685        2.55786        0.47897
+C          1.15155        3.01729       -0.97672
+C         -0.23031        3.32867       -1.52294
+S         -1.31463        1.87793       -1.48757
+C         -1.19004        1.40804        0.30377
+C         -1.97883        0.08501        0.42283
+C         -1.96686        2.47259        1.10918
+C          0.42757        0.99953        2.28404
+H          0.95243        0.10995       -1.02541
+H          0.61448       -0.88913        0.39202
+H          2.09633        0.05251        0.31343
+H          0.76312        3.38004        1.10220
+H          2.17835        2.40657        0.79424
+H          1.65203        2.27307       -1.60762
+H          1.76331        3.92559       -1.04536
+H         -0.14523        3.65713       -2.56403
+H         -0.69691        4.14938       -0.96945
+H         -1.98767       -0.28361        1.45368
+H         -3.02959        0.21461        0.13296
+H         -1.56692       -0.70963       -0.20856
+H         -1.47891        3.45114        1.10598
+H         -2.98340        2.61190        0.72014
+H         -2.08046        2.17021        2.15614
+H         -0.11048        0.09479        2.58238
+H          1.47397        0.86224        2.58306
+H          0.03896        1.83660        2.87268
+
+--Link1--
+%chk=JID_686.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_54205534_JID_686_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_686.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_54205534_JID_686_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_686.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_54205534_JID_686_Energie_anion
+
+-1 2
