@@ -1,0 +1,68 @@
+%chk=JID_5693.chk
+%mem=8GB
+%nprocshared=4
+# opt freq B3LYP/6-31G(d) empiricaldispersion=gd3bj scf=xqc
+
+CID_130595813_JID_5693_neutraal
+
+0 1
+C          0.92757        0.01209       -0.06788
+C          0.63561        1.51074       -0.08603
+C          0.67273        2.09201        1.33523
+C          0.54527        3.59402        1.32669
+C          0.85057        4.35734        0.26527
+C          1.37053        3.73977       -0.97832
+O          1.64636        4.45895       -1.93572
+C          1.62054        2.24787       -0.99507
+C          0.07137        4.22653        2.57004
+C         -1.18464        4.84651        2.69221
+C         -1.52219        5.43754        3.91752
+C         -0.62320        5.37043        4.97078
+N          0.57905        4.76785        4.89129
+C          0.89658        4.21592        3.69735
+C         -2.16411        4.91661        1.55373
+H          0.86359       -0.40777       -1.07723
+H          0.20431       -0.51654        0.56188
+H          1.93036       -0.19395        0.32148
+H         -0.37795        1.65296       -0.48736
+H         -0.14753        1.64808        1.91413
+H          1.60916        1.81493        1.83638
+H          0.76505        5.43837        0.25915
+H          2.65742        2.07387       -0.68525
+H          1.50424        1.89330       -2.02566
+H         -2.47389        5.94046        4.05788
+H         -0.85704        5.81410        5.93449
+H          1.88012        3.75315        3.66903
+H         -3.16550        5.18382        1.90867
+H         -1.84944        5.67363        0.82897
+H         -2.25392        3.94623        1.05483
+
+--Link1--
+%chk=JID_5693.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_130595813_JID_5693_Energie_neutraal
+
+0 1
+
+--Link1--
+%chk=JID_5693.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_130595813_JID_5693_Energie_kation
+
+1 2
+
+--Link1--
+%chk=JID_5693.chk
+%mem=8GB
+%nprocshared=4
+# B3LYP/6-311++G(d,p) empiricaldispersion=gd3bj scf=xqc pop=npa geom=check
+
+CID_130595813_JID_5693_Energie_anion
+
+-1 2
