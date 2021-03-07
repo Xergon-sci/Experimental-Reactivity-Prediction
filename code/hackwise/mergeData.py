@@ -38,4 +38,4 @@ result = result[['jid','cid', 'smiles', 'carbon', 'fluorine', 'chlorine', 'bromi
 sections = np.array_split(result, 10)
 
 for i,s in enumerate(sections):
-    s.to_json(r'C:\Users\Michiel Jacobs\Research\Master Thesis\Experimental-Reactivity-Prediction\data\CNOS_sub1_10to20_10k\Full\CNOS_sub1_10to20_10k_{}'.format(i), orient='index', indent=2)
+    s.to_json(r'C:\Users\Michiel Jacobs\Research\Master Thesis\Experimental-Reactivity-Prediction\data\CNOS_sub1_10to20_10k\Full\CNOS_sub1_10to20_10k_{}.json'.format(i), orient='index', indent=2)
