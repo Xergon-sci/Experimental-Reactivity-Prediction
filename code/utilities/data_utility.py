@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 
 def loaddata(path):
     dataframes = []
@@ -12,3 +13,9 @@ def loaddata(path):
         transp.append(df.transpose())
     
     return pd.concat(transp)
+
+def savedataJson(path, df, cnt, name):
+    sections = np.array_split(df, cnt)
+    
+    for i,s in enumerate(sections):
+        s.to_json(r'{}\{}_{}.json'.format(path, name, i), orient='index', indent=2)
